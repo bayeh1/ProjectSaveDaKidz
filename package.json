@@ -1,0 +1,19 @@
+{
+  "name": "save-da-kidz",
+  "version": "1.0.0",
+  "description": "Save Da Kidz Charity",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch & npx serve . -p 3000",
+    "start": "npm run build && npx serve . -p 3000"
+  },
+  "keywords": ["donation", "charity", "stripe"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "stripe": "^17.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

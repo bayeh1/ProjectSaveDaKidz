@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Save Da Kidz</title>
+    <meta name="description" content="Make a donation to Save Da Kidz and help feed community children in Afaben.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { corePlugins: { preflight: false } }</script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a class="site-nav-brand" href="index.html">Save Da Kidz</a>
+            <button class="site-nav-toggle" onclick="this.closest('.site-nav').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+            <ul class="site-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="donate.html" class="nav-cta active">Donate Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="gradient-bg text-white">
+        <div class="container px-4 py-10 py-md-16 text-center">
+            <div class="mx-auto" style="max-width: 40rem;">
+                <h1 class="display-4 fw-bold mb-3">Make a Donation</h1>
+                <p class="lead opacity-90">
+                    Your generosity directly feeds children in Afaben. Every dollar makes a difference.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container px-3 px-md-4 py-8 py-md-12">
+        <div class="mx-auto" style="max-width: 38rem;">
+
+            <!-- Donation Card -->
+            <section class="donation-card bg-white rounded-2xl p-4 p-md-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Choose an Amount</h2>
+
+                <!-- Quick Amount Buttons -->
+                <div class="mb-6">
+                    <p class="text-gray-600 mb-3 text-center font-medium">Select a donation amount</p>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <button class="amount-btn bg-gray-100 text-gray-700 py-3 px-3 rounded-lg font-semibold w-100" data-amount="25">$25</button>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <button class="amount-btn bg-gray-100 text-gray-700 py-3 px-3 rounded-lg font-semibold w-100" data-amount="50">$50</button>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <button class="amount-btn bg-gray-100 text-gray-700 py-3 px-3 rounded-lg font-semibold w-100" data-amount="100">$100</button>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <button class="amount-btn bg-gray-100 text-gray-700 py-3 px-3 rounded-lg font-semibold w-100" data-amount="250">$250</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Amount Input -->
+                <div class="mb-6">
+                    <label for="custom-amount" class="block text-gray-700 font-medium mb-2">
+                        Or enter a custom amount
+                    </label>
+                    <div class="position-relative">
+                        <span class="position-absolute top-50 start-0 translate-middle-y ms-3 text-gray-500 fs-5 fw-semibold">$</span>
+                        <input
+                            type="number"
+                            id="custom-amount"
+                            min="1"
+                            step="0.01"
+                            placeholder="0.00"
+                            class="form-control form-control-lg ps-5 pe-4 py-3 border-2 border-gray-300 rounded-lg"
+                            style="font-size: 1.25rem; font-weight: 600;"
+                        >
+                    </div>
+                </div>
+
+                <!-- Payment Method Selection -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-3">Choose payment method</label>
+                    <div class="row g-3" id="payment-methods-row">
+                        <div class="col-12 col-md-6">
+                            <button
+                                id="payment-stripe"
+                                class="payment-method-btn w-100 p-3 border-2 rounded-lg text-start d-flex align-items-center gap-3 active"
+                                data-method="stripe"
+                            >
+                                <span class="fw-bold">💳</span>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold">Credit/Debit Card</div>
+                                    <div class="small text-muted">Powered by Stripe</div>
+                                </div>
+                            </button>
+                        </div>
+                        <!-- Alternative payments will be inserted here dynamically -->
+                    </div>
+                </div>
+
+                <!-- Donation Button -->
+                <button
+                    id="donate-button"
+                    class="btn-donate w-100 text-white py-3 px-4 rounded-lg font-bold fs-5"
+                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;"
+                >
+                    Donate Now
+                </button>
+
+                <p class="text-center text-gray-500 text-sm mt-4">
+                    Secure payment options available
+                </p>
+
+                <!-- Processing Fees Disclaimer -->
+                <div class="mt-4 p-3 rounded-lg border" style="background-color: #eff6ff; border-color: #bfdbfe !important;">
+                    <p class="small text-gray-700 text-center mb-0">
+                        <strong>Note:</strong> Stripe processing fees apply (approximately 2.9% + $0.30 per transaction).
+                        All proceeds after fees go directly to <strong>community children in Afaben</strong>.
+                    </p>
+                </div>
+
+                <!-- Stats -->
+                <div class="mt-8 pt-6 border-top border-gray-200">
+                    <div class="row g-4 text-center">
+                        <div class="col-4">
+                            <div class="fs-2 fw-bold text-purple-600 mb-1">100%</div>
+                            <div class="text-gray-500 small">To Afaben</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="fs-2 fw-bold text-purple-600 mb-1">Secure</div>
+                            <div class="text-gray-500 small">Safe Payment</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="fs-2 fw-bold text-purple-600 mb-1">Receipt</div>
+                            <div class="text-gray-500 small">Tax-Deductible</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="mt-6 bg-white rounded-2xl p-4 p-md-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">About Our Mission</h3>
+                <div class="text-gray-600 space-y-4">
+                    <p>
+                        Save Da Kidz is dedicated to fighting child hunger in Afaben.
+                        We work directly with local partners to ensure that every dollar donated
+                        goes directly to providing nutritious meals for community children.
+                    </p>
+                    <p>
+                        Your support makes it possible for us to reach more children every day.
+                        Together, we can make a lasting impact on the lives of those who need it most.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-8">
+        <div class="container px-4 text-center">
+            <p class="fw-bold mb-1">Save Da Kidz</p>
+            <div class="d-flex justify-content-center gap-4 mb-3">
+                <a href="index.html" class="text-gray-400 small text-decoration-none">Home</a>
+                <a href="gallery.html" class="text-gray-400 small text-decoration-none">Gallery</a>
+                <a href="donate.html" class="text-gray-400 small text-decoration-none">Donate</a>
+            </div>
+            <p class="text-gray-500 small mb-1">© 2025 Save Da Kidz. All rights reserved.</p>
+            <p class="text-gray-600 small mb-0">A registered 501(c)(3) charity organization</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Application Scripts -->
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
