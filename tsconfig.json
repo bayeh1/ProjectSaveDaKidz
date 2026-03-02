@@ -1,19 +1,18 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "ES2020",
+    "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
     "moduleResolution": "bundler",
-    "outDir": "./",
-    "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "removeComments": false
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["src/js/**/*.ts", "src/util/**/*.ts"],
-  "exclude": ["node_modules", "src/api/**/*.ts"]
+  "include": ["src/**/*.{ts,tsx}"],
+  "exclude": ["node_modules"]
 }
