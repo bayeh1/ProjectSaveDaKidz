@@ -33,7 +33,7 @@ export default function Success() {
               </p>
               <Link
                 to="/"
-                className="btn-donate inline-block bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold"
+                className="btn-donate inline-block bg-white text-green-700 px-8 py-3 rounded-lg font-semibold"
               >
                 {successContent.returnCta}
               </Link>

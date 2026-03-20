@@ -70,16 +70,16 @@ describe('homeContent', () => {
       expect(homeContent.galleryPreview.photos).toHaveLength(3);
     });
 
-    it('each photo has a non-empty seed and caption', () => {
+    it('each photo has a non-empty filename and caption', () => {
       homeContent.galleryPreview.photos.forEach((p) => {
-        expect(p.seed).toBeTruthy();
+        expect(p.filename).toBeTruthy();
         expect(p.caption).toBeTruthy();
       });
     });
 
-    it('photo seeds are unique', () => {
-      const seeds = homeContent.galleryPreview.photos.map((p) => p.seed);
-      expect(new Set(seeds).size).toBe(seeds.length);
+    it('photo filenames are unique', () => {
+      const filenames = homeContent.galleryPreview.photos.map((p) => p.filename);
+      expect(new Set(filenames).size).toBe(filenames.length);
     });
   });
 

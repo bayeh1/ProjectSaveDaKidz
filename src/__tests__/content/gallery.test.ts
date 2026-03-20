@@ -27,10 +27,10 @@ describe('galleryContent', () => {
       });
     });
 
-    it('each photo has seed, alt, title, caption', () => {
+    it('each photo has filename, alt, title, caption', () => {
       galleryContent.categories.forEach((cat) => {
         cat.photos.forEach((photo) => {
-          expect(photo.seed).toBeTruthy();
+          expect(photo.filename).toBeTruthy();
           expect(photo.alt).toBeTruthy();
           expect(photo.title).toBeTruthy();
           expect(photo.caption).toBeTruthy();
@@ -38,9 +38,9 @@ describe('galleryContent', () => {
       });
     });
 
-    it('all photo seeds are unique across categories', () => {
-      const seeds = galleryContent.categories.flatMap((c) => c.photos.map((p) => p.seed));
-      expect(new Set(seeds).size).toBe(seeds.length);
+    it('all photo filenames are unique across categories', () => {
+      const filenames = galleryContent.categories.flatMap((c) => c.photos.map((p) => p.filename));
+      expect(new Set(filenames).size).toBe(filenames.length);
     });
 
     it('category headings are unique', () => {

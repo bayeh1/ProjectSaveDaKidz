@@ -64,11 +64,11 @@ describe('Gallery page', () => {
     });
   });
 
-  it('renders picsum photo URLs using the photo seed', () => {
+  it('renders photo images with correct src path', () => {
     renderGallery();
     const firstPhoto = galleryContent.categories[0].photos[0];
     const img = screen.getByAltText(firstPhoto.alt);
-    expect(img).toHaveAttribute('src', expect.stringContaining(firstPhoto.seed));
+    expect(img).toHaveAttribute('src', `/images/${firstPhoto.filename}`);
   });
 
   it('renders donate CTA heading', () => {
@@ -86,8 +86,4 @@ describe('Gallery page', () => {
     expect(screen.getByRole('link', { name: galleryContent.donateCta.cta })).toHaveAttribute('href', '/donate');
   });
 
-  it('renders the placeholder image note', () => {
-    renderGallery();
-    expect(screen.getByText(/Replace placeholder images/)).toBeInTheDocument();
-  });
 });

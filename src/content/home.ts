@@ -12,7 +12,7 @@ export const homeContent = {
     { value: '500+', label: 'Children Fed Daily' },
     { value: '3yrs', label: 'Years of Service' },
     { value: '100%', label: 'Goes to Afaben' },
-    { value: '12+', label: 'Local Partners' },
+    { value: '4+', label: 'Local Partners' },
   ] as { value: string; label: string }[],
 
   mission: {
@@ -30,29 +30,29 @@ export const homeContent = {
       icon: '🍽️',
       title: 'Daily Meals',
       desc: 'Hot, nutritious meals delivered directly to children in the community.',
-      bg: 'from-purple-100 to-purple-200',
-      titleColor: 'text-purple-900',
+      bg: 'from-green-100 to-green-200',
+      titleColor: 'text-green-900',
     },
     {
       icon: '🤝',
       title: 'Community',
       desc: 'Building lasting partnerships with families and local organizations.',
-      bg: 'from-pink-100 to-pink-200',
-      titleColor: 'text-pink-900',
+      bg: 'from-red-100 to-red-200',
+      titleColor: 'text-red-900',
     },
     {
       icon: '📚',
       title: 'Education',
       desc: 'Nourished children learn better and stay in school longer.',
-      bg: 'from-green-100 to-green-200',
-      titleColor: 'text-green-900',
+      bg: 'from-yellow-100 to-yellow-200',
+      titleColor: 'text-yellow-900',
     },
     {
       icon: '💛',
       title: 'Hope',
       desc: 'Every meal is a message: you are seen, valued, and cared for.',
-      bg: 'from-yellow-100 to-yellow-200',
-      titleColor: 'text-yellow-900',
+      bg: 'from-amber-100 to-amber-200',
+      titleColor: 'text-amber-900',
     },
   ] as { icon: string; title: string; desc: string; bg: string; titleColor: string }[],
 
@@ -63,10 +63,10 @@ export const homeContent = {
       'Every photo tells a story of hope, community, and change. Take a look at the work being done on the ground in Afaben.',
     cta: 'View Full Gallery →',
     photos: [
-      { seed: 'afaben1', caption: 'Community Meal Distribution' },
-      { seed: 'afaben2', caption: 'Children at Lunch' },
-      { seed: 'afaben3', caption: 'Volunteers Preparing Food' },
-    ] as { seed: string; caption: string }[],
+      { filename: 'dc3fb06b-4bbc-4157-bcac-5641668b2527.jpg', caption: 'Christmas Celebration 2023' },
+      { filename: 'a1b64e13-4254-4446-abf0-8efebc1e8aa1.jpg', caption: 'Food Package Distribution' },
+      { filename: 'cab365c2-0f7e-450a-a793-eeb362e7184e.jpg', caption: 'Community Gathering in Afaben' },
+    ] as { filename: string; caption: string }[],
   },
 
   donateCta: {

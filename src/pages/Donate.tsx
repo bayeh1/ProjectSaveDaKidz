@@ -100,7 +100,7 @@ export default function Donate() {
                   placeholder="0.00"
                   value={customAmount}
                   onChange={handleCustomChange}
-                  className="w-full pl-8 pr-4 py-3 border-2 border-gray-300 rounded-lg text-xl font-semibold focus:outline-none focus:border-purple-500"
+                  className="w-full pl-8 pr-4 py-3 border-2 border-gray-300 rounded-lg text-xl font-semibold focus:outline-none focus:border-green-600"
                 />
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function Donate() {
               onClick={handleDonate}
               disabled={isLoading}
               className="btn-donate w-full text-white py-3 px-4 rounded-lg font-bold text-xl disabled:opacity-60"
-              style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', border: 'none' }}
+              style={{ background: 'linear-gradient(135deg, #CE1126 0%, #006B3F 100%)', border: 'none' }}
             >
               {isLoading ? card.buttonLoading : card.buttonIdle}
             </button>
@@ -131,7 +131,7 @@ export default function Donate() {
               <div className="grid grid-cols-3 gap-4 text-center">
                 {statBadges.map((s) => (
                   <div key={s.label}>
-                    <div className="text-3xl font-bold text-purple-600 mb-1">{s.value}</div>
+                    <div className="text-3xl font-bold text-green-700 mb-1">{s.value}</div>
                     <div className="text-gray-500 text-sm">{s.label}</div>
                   </div>
                 ))}

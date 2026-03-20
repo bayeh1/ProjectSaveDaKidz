@@ -26,13 +26,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/donate"
-                className="btn-donate px-10 py-3 bg-white text-purple-700 font-bold rounded-full shadow text-lg"
+                className="btn-donate px-10 py-3 bg-white text-green-700 font-bold rounded-full shadow text-lg"
               >
                 {hero.donateCta}
               </Link>
               <Link
                 to="/gallery"
-                className="px-10 py-3 border-2 border-white text-white font-semibold rounded-full text-lg hover:bg-white hover:text-purple-700 transition-colors"
+                className="px-10 py-3 border-2 border-white text-white font-semibold rounded-full text-lg hover:bg-white hover:text-green-700 transition-colors"
               >
                 {hero.galleryCta}
               </Link>
@@ -47,7 +47,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <div className="text-4xl font-bold text-purple-600 mb-1">{stat.value}</div>
+                <div className="text-4xl font-bold text-green-700 mb-1">{stat.value}</div>
                 <div className="text-gray-500 text-sm font-medium">{stat.label}</div>
               </div>
             ))}
@@ -60,7 +60,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12 max-w-5xl mx-auto">
             <div className="lg:w-1/2">
-              <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+              <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
                 {mission.eyebrow}
               </span>
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -75,7 +75,7 @@ export default function Home() {
               <Link
                 to="/donate"
                 className="btn-donate inline-block px-8 py-3 text-white font-bold rounded-full"
-                style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
+                style={{ background: 'linear-gradient(135deg, #CE1126 0%, #006B3F 100%)' }}
               >
                 {mission.cta}
               </Link>
@@ -97,10 +97,10 @@ export default function Home() {
       </section>
 
       {/* Gallery Preview */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#f8f7ff' }}>
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#f5f9f5' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-3">
+            <span className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-3">
               {galleryPreview.eyebrow}
             </span>
             <h2 className="text-4xl font-bold text-gray-900 mb-3">{galleryPreview.heading}</h2>
@@ -109,10 +109,10 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {galleryPreview.photos.map(({ seed, caption }) => (
-              <div key={seed} className="gallery-thumb rounded-xl overflow-hidden relative" style={{ height: 240 }}>
+            {galleryPreview.photos.map(({ filename, caption }) => (
+              <div key={filename} className="gallery-thumb rounded-xl overflow-hidden relative" style={{ height: 240 }}>
                 <img
-                  src={`https://picsum.photos/seed/${seed}/600/400`}
+                  src={`/images/${filename}`}
                   alt={caption}
                   className="w-full h-full object-cover"
                 />
@@ -129,7 +129,7 @@ export default function Home() {
             <Link
               to="/gallery"
               className="inline-block px-10 py-3 border-2 rounded-full font-semibold"
-              style={{ borderColor: '#764ba2', color: '#764ba2' }}
+              style={{ borderColor: '#006B3F', color: '#006B3F' }}
             >
               {galleryPreview.cta}
             </Link>
@@ -147,7 +147,7 @@ export default function Home() {
             </p>
             <Link
               to="/donate"
-              className="btn-donate inline-block px-12 py-3 bg-white text-purple-700 font-bold rounded-full shadow-lg text-lg"
+              className="btn-donate inline-block px-12 py-3 bg-white text-green-700 font-bold rounded-full shadow-lg text-lg"
             >
               {donateCta.cta}
             </Link>

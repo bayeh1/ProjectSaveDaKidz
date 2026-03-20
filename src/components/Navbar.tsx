@@ -39,6 +39,15 @@ export default function Navbar() {
           </li>
           <li>
             <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? 'active' : '')}
+              onClick={() => setOpen(false)}
+            >
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/donate"
               className={({ isActive }) => `nav-cta${isActive ? ' active' : ''}`}
               onClick={() => setOpen(false)}

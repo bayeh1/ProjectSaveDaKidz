@@ -30,10 +30,10 @@ export default function Gallery() {
             <p className="text-gray-500 mb-6">{cat.subheading}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cat.photos.map((photo) => (
-                <div key={photo.seed} className="gallery-card rounded-xl overflow-hidden shadow-sm">
+                <div key={photo.filename} className="gallery-card rounded-xl overflow-hidden shadow-sm">
                   <div className="relative" style={{ height: 220 }}>
                     <img
-                      src={`https://picsum.photos/seed/${photo.seed}/600/400`}
+                      src={`/images/${photo.filename}`}
                       alt={photo.alt}
                       className="w-full h-full object-cover"
                     />
@@ -47,13 +47,6 @@ export default function Gallery() {
             </div>
           </div>
         ))}
-
-        <div className="text-center py-4 text-gray-400 text-sm border-t">
-          <p>
-            📷 Replace placeholder images with real photos from the field. Add your images to an{' '}
-            <code>images/</code> folder and update the <code>src</code> attributes above.
-          </p>
-        </div>
       </main>
 
       {/* Donate CTA */}
@@ -66,7 +59,7 @@ export default function Gallery() {
             </p>
             <Link
               to="/donate"
-              className="btn-donate inline-block px-10 py-3 bg-white text-purple-700 font-bold rounded-full shadow"
+              className="btn-donate inline-block px-10 py-3 bg-white text-green-700 font-bold rounded-full shadow"
             >
               {donateCta.cta}
             </Link>
