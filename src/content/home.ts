@@ -1,9 +1,9 @@
 export const homeContent = {
   hero: {
     eyebrow: 'A Community Charity',
-    heading: 'Every Child Deserves a Meal',
+    heading: 'Joy for Every Child',
     subheading:
-      'Save Da Kidz is on a mission to end child hunger in Afaben, one meal at a time. Your support changes lives.',
+      'Join our Community Christmas Party for a day of food, gifts, and festive fun for local families. Help us make the season bright!',
     donateCta: 'Donate Now',
     galleryCta: 'See Our Work',
   },
@@ -29,7 +29,7 @@ export const homeContent = {
     {
       icon: '🍽️',
       title: 'Food',
-      desc: 'Hot, nutritious meals delivered directly to children in the community.',
+      desc: 'Hot, nutritious meals served directly to children in the community.',
       bg: 'from-green-100 to-green-200',
       titleColor: 'text-green-900',
     },
