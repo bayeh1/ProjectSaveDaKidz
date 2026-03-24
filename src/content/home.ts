@@ -28,7 +28,7 @@ export const homeContent = {
   missionCards: [
     {
       icon: '🍽️',
-      title: 'Daily Meals',
+      title: 'Food',
       desc: 'Hot, nutritious meals delivered directly to children in the community.',
       bg: 'from-green-100 to-green-200',
       titleColor: 'text-green-900',
