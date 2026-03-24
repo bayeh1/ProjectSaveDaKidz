@@ -70,6 +70,16 @@ export default function About() {
           </div>
 
           <p className="text-gray-700 leading-relaxed text-base md:text-lg font-medium">{legacy.closing}</p>
+
+          <p className="text-gray-600 leading-relaxed text-base md:text-lg mt-6">
+            The funds will be used to feed kids and some adults in the Afaben community on Christmas day 2023. We will buy the following ingredients and cooking/party supplies to feed the families. There will also be drinks, water, a DJ and tents, packaging supplies, take-away bags with school supplies to take home and oh, lot's of fun!
+          </p>
+
+          <p className="text-gray-800 font-bold text-base md:text-lg mt-6 italic">
+            "No act of kindness, no matter how small, is ever wasted."
+            <br />
+            <span className="font-semibold not-italic">— Aesop</span>
+          </p>
         </section>
 
       </main>

@@ -110,19 +110,26 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {galleryPreview.photos.map(({ filename, caption }) => (
-              <div key={filename} className="gallery-thumb rounded-xl overflow-hidden relative" style={{ height: 240 }}>
+              <Link
+                key={filename}
+                to="/gallery"
+                className="gallery-thumb rounded-xl overflow-hidden relative block group"
+                style={{ height: 240 }}
+                aria-label={`View gallery — ${caption}`}
+              >
                 <img
                   src={`/images/${filename}`}
                   alt={caption}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-green-700 opacity-0 group-hover:opacity-20 transition-opacity duration-200" />
                 <div
                   className="absolute bottom-0 left-0 right-0 p-3 text-white"
                   style={{ background: 'linear-gradient(transparent, rgba(0,0,0,0.6))' }}
                 >
                   <p className="text-sm font-semibold mb-0">{caption}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center">

@@ -14,12 +14,12 @@ function renderNavbar(initialPath = '/') {
 describe('Navbar', () => {
   it('renders the brand link', () => {
     renderNavbar();
-    expect(screen.getByRole('link', { name: 'Save Da Kidz' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '🇬🇭' })).toBeInTheDocument();
   });
 
   it('brand link points to /', () => {
     renderNavbar();
-    expect(screen.getByRole('link', { name: 'Save Da Kidz' })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: '🇬🇭' })).toHaveAttribute('href', '/');
   });
 
   it('renders Home nav link', () => {
@@ -69,7 +69,7 @@ describe('Navbar', () => {
   it('closes menu when brand link is clicked', () => {
     renderNavbar();
     fireEvent.click(screen.getByRole('button', { name: 'Menu' }));
-    fireEvent.click(screen.getByRole('link', { name: 'Save Da Kidz' }));
+    fireEvent.click(screen.getByRole('link', { name: '🇬🇭' }));
     expect(document.querySelector('nav')!.className).not.toContain('open');
   });
 

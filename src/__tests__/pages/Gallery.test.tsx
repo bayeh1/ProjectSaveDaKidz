@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Gallery from '../../pages/Gallery';
 import { galleryContent } from '../../content/gallery';
@@ -86,4 +86,73 @@ describe('Gallery page', () => {
     expect(screen.getByRole('link', { name: galleryContent.donateCta.cta })).toHaveAttribute('href', '/donate');
   });
 
+  it('renders each photo card as a button', () => {
+    renderGallery();
+    galleryContent.categories.forEach((cat) => {
+      cat.photos.forEach((photo) => {
+        expect(screen.getByRole('button', { name: `Open photo: ${photo.title}` })).toBeInTheDocument();
+      });
+    });
+  });
+
+  it('opens lightbox when a photo card is clicked', () => {
+    renderGallery();
+    const firstPhoto = galleryContent.categories[0].photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${firstPhoto.title}` }));
+    expect(screen.getByTestId('lightbox-overlay')).toBeInTheDocument();
+  });
+
+  it('lightbox shows the photo image', () => {
+    renderGallery();
+    const firstPhoto = galleryContent.categories[0].photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${firstPhoto.title}` }));
+    const lightboxContent = screen.getByTestId('lightbox-content');
+    expect(lightboxContent.querySelector('img')).toHaveAttribute('src', `/images/${firstPhoto.filename}`);
+  });
+
+  it('lightbox shows category label, title, and caption', () => {
+    renderGallery();
+    const cat = galleryContent.categories[0];
+    const photo = cat.photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${photo.title}` }));
+    const lightbox = screen.getByTestId('lightbox-content');
+    expect(lightbox).toHaveTextContent(cat.heading);
+    expect(lightbox).toHaveTextContent(photo.title);
+    expect(lightbox).toHaveTextContent(photo.caption);
+  });
+
+  it('closes lightbox when × button is clicked', () => {
+    renderGallery();
+    const firstPhoto = galleryContent.categories[0].photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${firstPhoto.title}` }));
+    expect(screen.getByTestId('lightbox-overlay')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Close lightbox' }));
+    expect(screen.queryByTestId('lightbox-overlay')).not.toBeInTheDocument();
+  });
+
+  it('closes lightbox when Escape key is pressed', () => {
+    renderGallery();
+    const firstPhoto = galleryContent.categories[0].photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${firstPhoto.title}` }));
+    expect(screen.getByTestId('lightbox-overlay')).toBeInTheDocument();
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(screen.queryByTestId('lightbox-overlay')).not.toBeInTheDocument();
+  });
+
+  it('closes lightbox when overlay is clicked', () => {
+    renderGallery();
+    const firstPhoto = galleryContent.categories[0].photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${firstPhoto.title}` }));
+    expect(screen.getByTestId('lightbox-overlay')).toBeInTheDocument();
+    fireEvent.click(screen.getByTestId('lightbox-overlay'));
+    expect(screen.queryByTestId('lightbox-overlay')).not.toBeInTheDocument();
+  });
+
+  it('does not close lightbox when clicking inside the lightbox content', () => {
+    renderGallery();
+    const firstPhoto = galleryContent.categories[0].photos[0];
+    fireEvent.click(screen.getByRole('button', { name: `Open photo: ${firstPhoto.title}` }));
+    fireEvent.click(screen.getByTestId('lightbox-content'));
+    expect(screen.getByTestId('lightbox-overlay')).toBeInTheDocument();
+  });
 });

@@ -1,11 +1,67 @@
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { galleryContent } from '../content/gallery';
+import { galleryContent, type GalleryPhoto } from '../content/gallery';
 
 const { header, categories, donateCta } = galleryContent;
 
+interface ActivePhoto {
+  photo: GalleryPhoto;
+  categoryLabel: string;
+}
+
+function Lightbox({ active, onClose }: { active: ActivePhoto; onClose: () => void }) {
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'rgba(0,0,0,0.85)' }}
+      onClick={onClose}
+      data-testid="lightbox-overlay"
+    >
+      <div
+        className="relative max-w-3xl w-full rounded-xl overflow-hidden shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+        data-testid="lightbox-content"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-black/50 text-white text-xl font-bold transition-colors hover:bg-red-600"
+          aria-label="Close lightbox"
+          style={{ '--tw-hover-bg-opacity': '1' } as React.CSSProperties}
+        >
+          &times;
+        </button>
+        <img
+          src={`/images/${active.photo.filename}`}
+          alt={active.photo.alt}
+          className="w-full object-contain max-h-[70vh]"
+        />
+        <div className="bg-white p-4" style={{ borderTop: '3px solid #FCD116' }}>
+          <span className="text-xs font-semibold uppercase tracking-widest text-green-700 mb-1 block">
+            {active.categoryLabel}
+          </span>
+          <p className="font-bold text-gray-900 mb-1">{active.photo.title}</p>
+          <p className="text-gray-500 text-sm">{active.photo.caption}</p>
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
 export default function Gallery() {
+  const [active, setActive] = useState<ActivePhoto | null>(null);
+
   return (
     <>
       <Navbar />
@@ -30,7 +86,12 @@ export default function Gallery() {
             <p className="text-gray-500 mb-6">{cat.subheading}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cat.photos.map((photo) => (
-                <div key={photo.filename} className="gallery-card rounded-xl overflow-hidden shadow-sm">
+                <button
+                  key={photo.filename}
+                  className="gallery-card rounded-xl overflow-hidden shadow-sm text-left w-full cursor-pointer"
+                  onClick={() => setActive({ photo, categoryLabel: cat.heading })}
+                  aria-label={`Open photo: ${photo.title}`}
+                >
                   <div className="relative" style={{ height: 220 }}>
                     <img
                       src={`/images/${photo.filename}`}
@@ -42,7 +103,7 @@ export default function Gallery() {
                     <p className="font-semibold text-gray-800 mb-1 text-sm">{photo.title}</p>
                     <p className="text-gray-500 text-xs">{photo.caption}</p>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -68,6 +129,8 @@ export default function Gallery() {
       </section>
 
       <Footer />
+
+      {active && <Lightbox active={active} onClose={() => setActive(null)} />}
     </>
   );
 }

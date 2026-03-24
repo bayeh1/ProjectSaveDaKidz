@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className={`site-nav${open ? ' open' : ''}`}>
       <div className="site-nav-inner">
         <NavLink className="site-nav-brand" to="/" onClick={() => setOpen(false)}>
-          Save Da Kidz
+          🇬🇭
         </NavLink>
         <button
           className="site-nav-toggle"

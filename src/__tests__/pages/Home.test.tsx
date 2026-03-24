@@ -101,6 +101,15 @@ describe('Home page', () => {
     });
   });
 
+  it('gallery preview images are wrapped in links to /gallery', () => {
+    renderHome();
+    homeContent.galleryPreview.photos.forEach((photo) => {
+      const img = screen.getByAltText(photo.caption);
+      const link = img.closest('a');
+      expect(link).toHaveAttribute('href', '/gallery');
+    });
+  });
+
   it('renders the gallery preview CTA link', () => {
     renderHome();
     expect(screen.getByRole('link', { name: homeContent.galleryPreview.cta })).toHaveAttribute('href', '/gallery');
