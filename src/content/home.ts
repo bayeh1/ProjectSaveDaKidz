@@ -9,7 +9,7 @@ export const homeContent = {
   },
 
   stats: [
-    { value: '500+', label: 'Children Fed Daily' },
+    { value: '500+', label: 'Children Fed' },
     { value: '3yrs', label: 'Years of Service' },
     { value: '100%', label: 'Goes to Afaben' },
     { value: '4+', label: 'Local Partners' },
