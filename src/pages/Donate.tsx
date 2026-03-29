@@ -119,6 +119,33 @@ export default function Donate() {
               {card.secureNote}
             </p>
 
+            {/* Alternative Payment Options */}
+            {(config.alternativePayments.cashApp.enabled || config.alternativePayments.zelle.enabled) && (
+              <div className="mt-5">
+                <p className="text-center text-gray-500 text-sm mb-3 font-medium">Or donate via</p>
+                <div className="flex flex-col gap-3">
+                  {config.alternativePayments.cashApp.enabled && (
+                    <a
+                      href={config.alternativePayments.cashApp.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-lg font-bold text-white text-lg"
+                      style={{ backgroundColor: '#00D632' }}
+                    >
+                      <span>$</span> CashApp — {config.alternativePayments.cashApp.cashtag}
+                    </a>
+                  )}
+                  {config.alternativePayments.zelle.enabled && (
+                    <div className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-lg font-bold text-white text-lg"
+                      style={{ backgroundColor: '#6D1ED4' }}
+                    >
+                      <span>⚡</span> Zelle — {config.alternativePayments.zelle.email}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Disclaimer */}
             <div className="mt-4 p-3 rounded-lg border" style={{ backgroundColor: '#eff6ff', borderColor: '#bfdbfe' }}>
               <p className="text-sm text-gray-700 text-center mb-0">

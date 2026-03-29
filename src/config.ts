@@ -34,9 +34,9 @@ export const config: Config = {
 
   alternativePayments: {
     cashApp: {
-      enabled: false,
-      cashtag: '$YourCashTag',
-      link: 'https://cash.app/$YourCashTag',
+      enabled: true,
+      cashtag: '$KofiOheneOkae',
+      link: 'https://cash.app/$KofiOheneOkae',
     },
     venmo: {
       enabled: false,
