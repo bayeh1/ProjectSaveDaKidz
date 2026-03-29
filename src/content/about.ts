@@ -1,6 +1,6 @@
 export const aboutContent = {
   header: {
-    heading: 'About Save Da Kidz',
+    heading: 'About Joy for Every Child',
     subheading: 'A legacy of love, community, and Christmas cheer in Afaben, Ghana.',
   },
 

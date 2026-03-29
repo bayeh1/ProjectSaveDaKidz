@@ -63,7 +63,7 @@ export const handler = async (event: Event, context: Context): Promise<Response>
                     price_data: {
                         currency: 'usd',
                         product_data: {
-                            name: 'Donation to Save Da Kidz',
+                            name: 'Donation to Joy for Every Child',
                             description: 'Thank you for your generous donation to help feed children in need',
                         },
                         unit_amount: amount, // Amount in cents
@@ -115,7 +115,7 @@ export const handler = async (event: Event, context: Context): Promise<Response>
 //                     price_data: {
 //                         currency: 'usd',
 //                         product_data: {
-//                             name: 'Donation to Save Da Kidz',
+//                             name: 'Donation to Joy for Every Child',
 //                             description: 'Thank you for your generous donation to help feed children in need',
 //                         },
 //                         unit_amount: amount,

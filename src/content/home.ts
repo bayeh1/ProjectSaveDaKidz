@@ -19,7 +19,7 @@ export const homeContent = {
     eyebrow: 'Our Mission',
     heading: 'Fighting Child Hunger in Afaben',
     body1:
-      "In Afaben, thousands of children go to bed hungry every night. Save Da Kidz works directly with local families, schools, and community centers to deliver hot, nutritious meals where they're needed most.",
+      "In Afaben, thousands of children go to bed hungry every night. Joy for Every Child works directly with local families, schools, and community centers to deliver hot, nutritious meals where they're needed most.",
     body2:
       'We believe every child deserves the chance to grow up healthy, strong, and full of possibility. With your support, we are making that a reality — one meal at a time.',
     cta: 'Join Our Mission',

@@ -2,7 +2,7 @@
   "name": "save-da-kidz",
   "version": "1.0.0",
   "type": "module",
-  "description": "Save Da Kidz Charity",
+  "description": "Joy for Every Child Charity",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

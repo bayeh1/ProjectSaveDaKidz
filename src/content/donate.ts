@@ -25,7 +25,7 @@ export const donateContent = {
   about: {
     heading: 'About Our Mission',
     body1:
-      'Save Da Kidz is dedicated to fighting child hunger in Afaben. We work directly with local partners to ensure that every dollar donated goes directly to providing nutritious meals for community children.',
+      'Joy for Every Child is dedicated to fighting child hunger in Afaben. We work directly with local partners to ensure that every dollar donated goes directly to providing nutritious meals for community children.',
     body2:
       'Your support makes it possible for us to reach more children every day. Together, we can make a lasting impact on the lives of those who need it most.',
   },

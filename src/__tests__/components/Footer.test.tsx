@@ -14,7 +14,7 @@ function renderFooter() {
 describe('Footer', () => {
   it('renders the brand name', () => {
     renderFooter();
-    expect(screen.getByText('Save Da Kidz')).toBeInTheDocument();
+    expect(screen.getByText('Joy for Every Child')).toBeInTheDocument();
   });
 
   it('renders Home nav link pointing to /', () => {
@@ -40,7 +40,7 @@ describe('Footer', () => {
 
   it('renders copyright notice', () => {
     renderFooter();
-    expect(screen.getByText(/2025 Save Da Kidz/)).toBeInTheDocument();
+    expect(screen.getByText(/2025 Joy for Every Child/)).toBeInTheDocument();
   });
 
   it('renders 501(c)(3) notice', () => {

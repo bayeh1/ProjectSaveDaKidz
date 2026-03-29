@@ -1,5 +1,5 @@
 /**
- * Configuration file for Save Da Kidz donation website
+ * Configuration file for Joy for Every Child donation website
  * Update these values with your payment credentials
  */
 
